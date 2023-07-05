@@ -1,0 +1,89 @@
+{
+  "name": "boilerplate-package-vite-react",
+  "description": "Starter template for React library development with Vite",
+  "author": {
+    "name": "Samvel Avanesov",
+    "email": "sam.avanesoff@gmail.com"
+  },
+  "private": false,
+  "version": "0.0.0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savanesoff/boilerplate-package-vite-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/savanesoff/boilerplate-package-vite-react.git"
+  },
+  "homepage": "https://savanesoff.github.io/boilerplate-package-vite-react",
+  "keywords": [
+    "vite",
+    "react component",
+    "npm package",
+    "boilerplate",
+    "starter kit",
+    "template",
+    "pnpm",
+    "github actions",
+    "typescript",
+    "typescript-component",
+    "typescript-react"
+  ],
+  "packageManager": "^pnpm@8.6.6",
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "release": "pnpm build && pnpm test && pnpm changeset publish",
+    "prepublish": "pnpm run build",
+    "predeploy": "pnpm run prepublish",
+    "clean": "rm -rf ./dist",
+    "build": "pnpm run clean && pnpm run build:esm",
+    "build:esm": "tsc -p ./tsconfig.build.json && mv ./dist/index.js ./dist/index.mjs",
+    "prepack": "pnpm run build",
+    "test": "vitest --run"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "jsdom": "^22.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.4",
+    "vitest-dom": "^0.1.0",
+    "gh-pages": "^5.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
