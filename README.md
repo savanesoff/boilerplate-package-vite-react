@@ -49,6 +49,15 @@ Uses `vitest`. Simply tun test command
 - `pr` unit tests with caching
 - `main` branch npm auto publishing
 
+> **NOTE**  
+> Be sure to add `NPM_TOKEN` secret in you GH repository under: **settings`/`secrets`/`actions**.  
+> You need to generate a `classic` access token for `Automation` under: `https://www.npmjs.com/settings/.../tokens/`
+
+> **NOTE**  
+> Enable GH repo workflow permissions to `Read and write permissions` under: **settings`/`actions`/`general**
+> This will enable `changeset` to auto-version your package.
+> ![Alt text](public/gh-actions.png)
+
 ## License
 
 - `MIT` included ini package as well
